@@ -69,7 +69,7 @@ export default function AuthenticationForm(props: PaperProps) {
     <Center maw="100%" h="100vh" bg="var(--mantine-color-gray-light)">
       <Paper radius="md" p="xl" withBorder {...props} maw={500}>
         <Text ta="center" size="lg" mb="md" mt="md" fw={500}>
-          Bem-vindo de Volta! Faça login:
+          Welcome back <span style={{fontSize: '1.5rem'}}>👋</span>
         </Text>
 
         <form
@@ -83,7 +83,7 @@ export default function AuthenticationForm(props: PaperProps) {
             <TextInput
               required
               label="Username"
-              placeholder="hello@mantine.dev"
+              placeholder="example@example.com"
               value={form.values.username}
               onChange={(event) =>
                 form.setFieldValue("username", event.currentTarget.value)

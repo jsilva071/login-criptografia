@@ -199,7 +199,7 @@ export default function AuthenticationForm(props: PaperProps) {
     <Center maw="100%" h="100vh" bg="var(--mantine-color-gray-light)">
       <Paper radius="md" p="xl" withBorder {...props} maw={500}>
         <Text ta="center" size="lg" mb="md" mt="md" fw={500}>
-          Registe-se:
+          Register:
         </Text>
 
         <form
@@ -263,7 +263,7 @@ export default function AuthenticationForm(props: PaperProps) {
 
             <TextInput
               label="Email"
-              placeholder="hello@mantine.dev"
+              placeholder="example@example.com"
               value={form.values.email}
               onChange={(event) =>
                 form.setFieldValue("email", event.currentTarget.value)
