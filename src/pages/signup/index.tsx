@@ -25,6 +25,8 @@ import styles from "./index.module.css";
 import axios from "axios";
 import { useState } from "react";
 
+import { useRouter } from 'next/router'
+
 function PasswordRequirement({
   meets,
   label,
@@ -68,7 +70,9 @@ function getStrength(password: string) {
   return Math.max(100 - (100 / (requirements.length + 1)) * multiplier, 10);
 }
 
+
 export default function AuthenticationForm(props: PaperProps) {
+  const router = useRouter();
   const form = useForm({
     initialValues: {
       email: "",
@@ -178,6 +182,7 @@ export default function AuthenticationForm(props: PaperProps) {
         setLoading(false);
         if (res.status === 200) {
           console.log(res.data);
+          router.push('/login')
         } else {
           console.log(res.data);
         }
