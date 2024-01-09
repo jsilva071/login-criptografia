@@ -19,16 +19,12 @@ export default function Home(props: ProfileProps) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = (async ({req}) => {
-  const token = req.cookies['token'];
-  if (!token) return {props: { test: 'a' }};
-
-  const profile = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/user`, {
-    headers: {
-      'Authorization': token,
-      'Content-Type': 'application/json'
-    }
-  });
+export const getServerSideProps: GetServerSideProps = (async () => {
   
-  return { props: { profile: await profile.json() } }
+  return { props: { profile: {
+    name: "José",
+    username: "jsilva",
+    role: "Web",
+    avatarUrl: "A"
+  } } }
 })

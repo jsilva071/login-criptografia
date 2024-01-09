@@ -50,9 +50,7 @@ export default function AuthenticationForm(props: PaperProps) {
         data: userData,
       }).then((res) => {
         if (res.status === 200) {
-          setTimeout(() => {
-            router.push('/')
-          }, 1000);
+          router.push('/')
         } else {
           setLoading(false);
           console.log(res.data)

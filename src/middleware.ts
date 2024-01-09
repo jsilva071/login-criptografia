@@ -4,6 +4,15 @@ import { validateToken } from './helpers/server/validateToken';
 
 export async function middleware(request: NextRequest) {
   let response = NextResponse.next();
+
+  if (request.nextUrl.pathname.startsWith('/login')) {
+    const token = request.cookies.get('token')
+    if (token) {
+      return NextResponse.redirect(new URL('/', request.url));
+    }
+
+    return response;
+  }
   
   const token = request.cookies.get('token')
   const session = await validateToken(token?.value);
