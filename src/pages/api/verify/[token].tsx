@@ -19,6 +19,8 @@ export async function get(
   const {token} = req.query;
   const userData: any = verifyToken(token as string);
 
+  res.setHeader('Access-Control-Allow-Origin', process.env.NEXT_PUBLIC_APP_URL);
+
   const data = {
     userId: userData.userId
   }
