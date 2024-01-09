@@ -26,8 +26,6 @@ export async function post(
     },
   });
 
-  res.setHeader('Access-Control-Allow-Origin', process.env.NEXT_PUBLIC_APP_URL);
-
   if (user) {
     res.status(200).json({
       usernameAvailable: false

@@ -57,7 +57,7 @@ const requirements = [
 ];
 
 function getStrength(password: string) {
-  let multiplier = password.length > 5 ? 0 : 1;
+  let multiplier = password.length > 11 && password.length < 129 ? 0 : 1;
 
   requirements.forEach((requirement) => {
     if (!requirement.re.test(password)) {
@@ -181,6 +181,8 @@ export default function AuthenticationForm(props: PaperProps) {
         } else {
           console.log(res.data);
         }
+      }).catch((err) => {
+        setLoading(false);
       });
     } catch (err) {
       setLoading(false);

@@ -48,7 +48,5 @@ export async function post(
     data: userData,
   });
 
-  res.setHeader('Access-Control-Allow-Origin', process.env.NEXT_PUBLIC_APP_URL);
-
   res.status(200).json({ message: "User created!" });
 }

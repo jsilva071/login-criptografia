@@ -59,7 +59,6 @@ export async function post(
   const domain = `domain=${process.env.APP_DOMAIN}`;
 
   res.setHeader('set-cookie', `token=${token}; ${domain}; path=/; ${expires}; HttpOnly; Secure; SameSite=Strict`);
-  res.setHeader('Access-Control-Allow-Origin', process.env.NEXT_PUBLIC_APP_URL);
   
   const data = {
     message: "User Logged!",

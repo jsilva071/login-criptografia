@@ -38,7 +38,5 @@ export async function get(
     avatarUrl: user.avatarUrl
   }
 
-  res.setHeader('Access-Control-Allow-Origin', process.env.NEXT_PUBLIC_APP_URL);
-
   res.status(200).json(data);
 }
