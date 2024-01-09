@@ -49,11 +49,10 @@ export default function AuthenticationForm(props: PaperProps) {
         url: "/api/login",
         data: userData,
       }).then((res) => {
-        setLoading(false);
         if (res.status === 200) {
           router.push('/')
-          window.location.href = "/";
         } else {
+          setLoading(false);
           console.log(res.data)
         }
       });
