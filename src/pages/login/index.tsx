@@ -52,6 +52,7 @@ export default function AuthenticationForm(props: PaperProps) {
         setLoading(false);
         if (res.status === 200) {
           router.push('/')
+          window.location.href = "/";
         } else {
           console.log(res.data)
         }
