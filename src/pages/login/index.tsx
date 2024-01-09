@@ -26,14 +26,7 @@ export default function AuthenticationForm(props: PaperProps) {
     initialValues: {
       username: "",
       password: "",
-    },
-
-    validate: {
-      password: (val) =>
-        val.length <= 6
-          ? "Password should include at least 6 characters"
-          : null,
-    },
+    }
   });
 
   async function handleSubmitForm(

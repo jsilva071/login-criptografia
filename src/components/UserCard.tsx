@@ -27,8 +27,7 @@ export default function UserCard(props: UserProps) {
   async function handleLogout() {
     try {
       await axios({
-        method: "GET",
-        baseURL: process.env.NEXT_PUBLIC_APP_URL, 
+        method: "POST",
         url: "/api/logout"
       }).then((res) => {
         if (res.status === 200) {
