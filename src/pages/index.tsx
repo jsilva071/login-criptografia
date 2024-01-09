@@ -23,11 +23,12 @@ export const getServerSideProps: GetServerSideProps = (async ({req}) => {
   const token = req.cookies['token'];
   if (!token) return {props: { test: 'a' }};
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/user`, {
+  const profile = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/user`, {
     headers: {
-      'Authorization': token
+      'Authorization': token,
+      'Content-Type': 'application/json'
     }
-  }).then(r => r.json())
-  // Pass data to the page via props
-  return { props: { profile: res } }
+  });
+  
+  return { props: { profile: await profile.json() } }
 })
